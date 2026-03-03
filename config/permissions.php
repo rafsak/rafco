@@ -1,0 +1,21 @@
+<?php
+
+declare(strict_types=1);
+
+return [
+    'AUTH_MANAGE_USERS',
+    'AUTH_MANAGE_ROLES',
+    'COMPANY_EDIT',
+    'PARTNER_MANAGE',
+    'PRODUCT_MANAGE',
+    'STOCK_MANAGE',
+    'SALES_QUOTE_MANAGE',
+    'SALES_INVOICE_MANAGE',
+    'PURCHASE_INVOICE_MANAGE',
+    'PAYMENT_MANAGE',
+    'REPORT_VIEW',
+    'AUDIT_VIEW',
+    'FISCAL_VALIDATE_TEJ',
+    'FISCAL_SEND_TTN',
+    'FISCAL_QR_GENERATE',
+];
