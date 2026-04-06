@@ -1,0 +1,54 @@
+RewriteEngine On
+RewriteBase /
+
+# Redirect to HTTPS (production)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Block access to sensitive files
+<FilesMatch "\.(sql|log|ini|env|md)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Block access to includes and functions directories
+RewriteRule ^includes/ - [F,L]
+RewriteRule ^functions/ - [F,L]
+RewriteRule ^database/ - [F,L]
+RewriteRule ^cache/ - [F,L]
+RewriteRule ^lang/ - [F,L]
+
+# Allow static assets
+RewriteRule ^assets/ - [L]
+RewriteRule ^uploads/ - [L]
+RewriteRule ^manifest\.json$ - [L]
+RewriteRule ^sw\.js$ - [L]
+RewriteRule ^favicon\.ico$ - [L]
+RewriteRule ^robots\.txt$ - [L]
+
+# Admin files
+RewriteRule ^admin/ - [L]
+
+# AJAX handlers
+RewriteRule ^ajax/ - [L]
+
+# API endpoints
+RewriteRule ^api/ - [L]
+
+# Sitemap
+RewriteRule ^sitemap\.xml$ index.php?page=sitemap [L,QSA]
+
+# Language + page routing
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(fr|ar|en)/(.*)$ index.php?lang=$1&route=$2 [L,QSA]
+
+# Language only
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(fr|ar|en)/?$ index.php?lang=$1 [L,QSA]
+
+# Default (no language prefix)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)$ index.php?route=$1 [L,QSA]

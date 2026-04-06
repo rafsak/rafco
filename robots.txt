@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /includes/
+Disallow: /functions/
+Disallow: /cache/
+Disallow: /database/
+Disallow: /ajax/
+
+Sitemap: http://localhost:8080/sitemap.xml
