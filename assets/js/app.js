@@ -166,6 +166,7 @@
     }
 
     // -- Quick replies --
+    // options: [{label, value}] — label affiché avec emoji, value envoyé à l'API (texte brut)
     function showQuickReplies(intent, data) {
         clearQuickReplies();
 
@@ -173,18 +174,46 @@
 
         if (intent === 'salutation' || intent === 'aide') {
             if (lang === 'ar') {
-                options = ['🎓 الاختصاصات', '🏢 المراكز', '🧭 توجيهني', '📋 التسجيل', 'ℹ️ ما هي ATFP'];
+                options = [
+                    {label: '🎓 الاختصاصات', value: 'اختصاصات'},
+                    {label: '🏢 المراكز', value: 'مراكز'},
+                    {label: '🧭 توجيهني', value: 'توجيه'},
+                    {label: '📋 التسجيل', value: 'تسجيل'},
+                    {label: 'ℹ️ ما هي ATFP', value: 'ما هي atfp'}
+                ];
             } else {
-                options = ['🎓 Spécialités', '🏢 Centres', '🧭 Orientez-moi', '📋 Inscription', 'ℹ️ C\'est quoi ATFP'];
+                options = [
+                    {label: '🎓 Spécialités', value: 'spécialités'},
+                    {label: '🏢 Centres', value: 'centres'},
+                    {label: '🧭 Orientez-moi', value: 'orientation'},
+                    {label: '📋 Inscription', value: 'inscription'},
+                    {label: 'ℹ️ C\'est quoi ATFP', value: "c'est quoi atfp"}
+                ];
             }
         } else if (intent === 'specialites' && data && data.items) {
-            options = data.items.map(function (s) { return s.nom; });
+            options = data.items.map(function (s) { return {label: s.nom, value: s.nom}; });
         } else if (intent === 'orientation') {
             if (data && data.step === 'interets') {
                 if (lang === 'ar') {
-                    options = ['💻 إعلامية', '⚡ كهرباء', '🔧 ميكانيك', '🏗️ بناء', '🏨 سياحة', '✂️ تجميل', '📊 تجارة'];
+                    options = [
+                        {label: '💻 إعلامية', value: 'إعلامية'},
+                        {label: '⚡ كهرباء', value: 'كهرباء'},
+                        {label: '🔧 ميكانيك', value: 'ميكانيك'},
+                        {label: '🏗️ بناء', value: 'بناء'},
+                        {label: '🏨 سياحة', value: 'سياحة'},
+                        {label: '✂️ تجميل', value: 'تجميل'},
+                        {label: '📊 تجارة', value: 'تجارة'}
+                    ];
                 } else {
-                    options = ['💻 Informatique', '⚡ Électricité', '🔧 Mécanique', '🏗️ BTP', '🏨 Tourisme', '✂️ Esthétique', '📊 Commerce'];
+                    options = [
+                        {label: '💻 Informatique', value: 'informatique'},
+                        {label: '⚡ Électricité', value: 'électricité'},
+                        {label: '🔧 Mécanique', value: 'mécanique'},
+                        {label: '🏗️ BTP', value: 'btp'},
+                        {label: '🏨 Tourisme', value: 'tourisme'},
+                        {label: '✂️ Esthétique', value: 'esthétique'},
+                        {label: '📊 Commerce', value: 'commerce'}
+                    ];
                 }
             }
         }
@@ -194,10 +223,11 @@
         options.forEach(function (opt) {
             const btn = document.createElement('button');
             btn.className = 'quick-reply-btn';
-            btn.textContent = opt;
+            btn.textContent = opt.label;
             btn.addEventListener('click', function () {
-                $input.value = opt;
-                sendMessage();
+                appendMessage('user', opt.label);
+                clearQuickReplies();
+                sendToAPI(opt.value);
             });
             $quickArea.appendChild(btn);
         });
