@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATFP Chatbot — Orientation Professionnelle</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="chat-container">
+
+    <!-- Welcome overlay -->
+    <div class="welcome-overlay" id="welcomeOverlay">
+        <div class="welcome-icon">🎓</div>
+        <h1 id="welcomeTitle">Bienvenue !</h1>
+        <p id="welcomeText">Je suis votre assistant d'orientation ATFP. Je vous aide à trouver la formation idéale.</p>
+        <button class="start-btn" id="startBtn">Commencer</button>
+    </div>
+
+    <!-- Header -->
+    <div class="chat-header">
+        <div class="avatar">🤖</div>
+        <div class="header-info">
+            <h2 id="headerTitle">ATFP Chatbot</h2>
+            <div class="status" id="headerStatus">En ligne</div>
+        </div>
+        <button class="lang-toggle" id="langToggle">عربي</button>
+    </div>
+
+    <!-- Messages -->
+    <div class="chat-messages" id="chatMessages">
+        <div class="typing-indicator" id="typingIndicator">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+
+    <!-- Quick replies -->
+    <div class="quick-replies" id="quickReplies"></div>
+
+    <!-- Input -->
+    <div class="chat-input">
+        <input type="text" id="chatInput" placeholder="Écrivez votre message..." autocomplete="off">
+        <button id="sendBtn" aria-label="Envoyer">➤</button>
+    </div>
+
+</div>
+
+<script src="assets/js/app.js"></script>
+</body>
+</html>

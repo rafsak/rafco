@@ -1,0 +1,266 @@
+{
+  "intents": [
+    {
+      "tag": "salutation",
+      "patterns": {
+        "fr": ["bonjour", "salut", "bonsoir", "hey", "coucou", "salam", "hi", "hello"],
+        "ar": ["مرحبا", "السلام عليكم", "أهلا", "صباح الخير", "مساء الخير"]
+      },
+      "responses": {
+        "fr": [
+          "Bonjour ! 👋 Je suis le chatbot ATFP. Comment puis-je vous aider dans votre orientation professionnelle ?",
+          "Salut ! Bienvenue sur le chatbot ATFP. Je peux vous aider à trouver la formation qui vous convient. Que souhaitez-vous savoir ?"
+        ],
+        "ar": [
+          "مرحبا! 👋 أنا روبوت المحادثة الخاص بوكالة التكوين المهني. كيف يمكنني مساعدتك في التوجيه المهني؟",
+          "أهلا وسهلا! مرحبا بك في روبوت ATFP. يمكنني مساعدتك في إيجاد التكوين المناسب لك."
+        ]
+      }
+    },
+    {
+      "tag": "au_revoir",
+      "patterns": {
+        "fr": ["au revoir", "bye", "à bientôt", "bonne journée", "merci au revoir", "adieu"],
+        "ar": ["مع السلامة", "إلى اللقاء", "وداعا", "باي"]
+      },
+      "responses": {
+        "fr": [
+          "Au revoir ! N'hésitez pas à revenir si vous avez d'autres questions. Bonne chance ! 🍀",
+          "À bientôt ! Je reste disponible pour toute question sur la formation professionnelle."
+        ],
+        "ar": [
+          "مع السلامة! لا تتردد في العودة إذا كانت لديك أسئلة أخرى. حظ سعيد! 🍀",
+          "إلى اللقاء! أنا متاح دائما لأي سؤال حول التكوين المهني."
+        ]
+      }
+    },
+    {
+      "tag": "aide",
+      "patterns": {
+        "fr": ["aide", "help", "comment ça marche", "que peux-tu faire", "fonctionnalités", "quoi faire"],
+        "ar": ["مساعدة", "كيف يعمل", "ماذا تفعل", "ما هي وظائفك"]
+      },
+      "responses": {
+        "fr": [
+          "Je peux vous aider à :\n🎓 Découvrir les spécialités ATFP\n🏢 Trouver un centre de formation près de chez vous\n📋 Évaluer votre niveau et vos intérêts\n💡 Vous recommander des formations adaptées\n\nDites-moi simplement ce qui vous intéresse !"
+        ],
+        "ar": [
+          "يمكنني مساعدتك في:\n🎓 اكتشاف اختصاصات ATFP\n🏢 إيجاد مركز تكوين قريب منك\n📋 تقييم مستواك واهتماماتك\n💡 اقتراح تكوينات مناسبة لك\n\nأخبرني ببساطة ما يهمك!"
+        ]
+      }
+    },
+    {
+      "tag": "specialites",
+      "patterns": {
+        "fr": ["spécialités", "specialites", "formations", "quelles formations", "liste formations", "diplômes", "que puis-je étudier", "filières", "branches"],
+        "ar": ["اختصاصات", "تكوينات", "ما هي التكوينات", "قائمة التكوينات", "شهادات", "فروع"]
+      },
+      "responses": {
+        "fr": ["Voici nos secteurs de formation. Lequel vous intéresse ?"],
+        "ar": ["إليك قطاعات التكوين لدينا. أيها يهمك؟"]
+      },
+      "action": "list_secteurs"
+    },
+    {
+      "tag": "centres",
+      "patterns": {
+        "fr": ["centres", "centre", "où", "emplacement", "adresse", "localisation", "centres de formation", "près de moi", "dans ma région"],
+        "ar": ["مراكز", "مركز", "أين", "عنوان", "موقع", "مراكز التكوين", "قريب مني"]
+      },
+      "responses": {
+        "fr": ["Voici les centres ATFP disponibles. Indiquez votre gouvernorat pour filtrer."],
+        "ar": ["إليك مراكز ATFP المتاحة. حدد ولايتك للتصفية."]
+      },
+      "action": "list_centres"
+    },
+    {
+      "tag": "gouvernorat",
+      "patterns": {
+        "fr": ["tunis", "ariana", "ben arous", "sousse", "sfax", "nabeul", "bizerte", "gabès", "kairouan", "monastir", "médenine", "gafsa", "kasserine", "sidi bouzid", "jendouba", "béja", "le kef", "siliana", "mahdia", "tozeur", "kébili", "tataouine", "manouba", "zaghouan"],
+        "ar": ["تونس", "أريانة", "بن عروس", "سوسة", "صفاقس", "نابل", "بنزرت", "قابس", "القيروان", "المنستير", "مدنين", "قفصة", "القصرين", "سيدي بوزيد", "جندوبة", "باجة", "الكاف", "سليانة", "المهدية", "توزر", "قبلي", "تطاوين", "منوبة", "زغوان"]
+      },
+      "responses": {
+        "fr": ["Voici les centres disponibles dans votre région :"],
+        "ar": ["إليك المراكز المتاحة في منطقتك:"]
+      },
+      "action": "filter_centres_by_gov"
+    },
+    {
+      "tag": "niveau",
+      "patterns": {
+        "fr": ["niveau", "bac", "baccalauréat", "9ème", "neuvième", "6ème", "sixième", "7ème", "septième", "diplôme", "sans diplôme", "niveau scolaire"],
+        "ar": ["مستوى", "باكالوريا", "تاسعة", "سادسة", "سابعة", "شهادة", "بدون شهادة", "المستوى الدراسي"]
+      },
+      "responses": {
+        "fr": ["Quel est votre niveau scolaire actuel ? (6ème, 7ème, 9ème année, Bac...)"],
+        "ar": ["ما هو مستواك الدراسي الحالي؟ (سادسة، سابعة، تاسعة، باكالوريا...)"]
+      },
+      "action": "ask_niveau"
+    },
+    {
+      "tag": "orientation",
+      "patterns": {
+        "fr": ["orientation", "orienter", "je ne sais pas quoi faire", "quelle formation choisir", "conseillez-moi", "recommandation", "suggestion", "test", "quiz", "évaluation"],
+        "ar": ["توجيه", "لا أعرف ماذا أفعل", "أي تكوين أختار", "انصحني", "توصية", "اقتراح", "اختبار", "تقييم"]
+      },
+      "responses": {
+        "fr": ["D'accord ! Je vais vous poser quelques questions pour mieux vous orienter. Commençons :\n\n📚 Quel est votre niveau scolaire actuel ?"],
+        "ar": ["حسنا! سأطرح عليك بعض الأسئلة لتوجيهك بشكل أفضل. لنبدأ:\n\n📚 ما هو مستواك الدراسي الحالي؟"]
+      },
+      "action": "start_orientation"
+    },
+    {
+      "tag": "interet_info",
+      "patterns": {
+        "fr": ["informatique", "ordinateur", "programmation", "code", "web", "internet", "logiciel", "computer", "développeur", "geek", "tech"],
+        "ar": ["حاسوب", "برمجة", "ويب", "إنترنت", "إعلامية", "تكنولوجيا", "مطور"]
+      },
+      "sector_id": 1,
+      "responses": {
+        "fr": ["L'informatique, excellent choix ! 💻 Nous avons plusieurs formations dans ce domaine."],
+        "ar": ["الإعلامية، خيار ممتاز! 💻 لدينا عدة تكوينات في هذا المجال."]
+      },
+      "action": "suggest_by_sector"
+    },
+    {
+      "tag": "interet_elec",
+      "patterns": {
+        "fr": ["électricité", "électronique", "électrique", "courant", "câblage", "froid", "climatisation", "clim"],
+        "ar": ["كهرباء", "إلكترونيك", "تيار", "تبريد", "تكييف"]
+      },
+      "sector_id": 2,
+      "responses": {
+        "fr": ["L'électricité et l'électronique offrent de belles perspectives ! ⚡"],
+        "ar": ["الكهرباء والإلكترونيك توفر آفاق مهنية رائعة! ⚡"]
+      },
+      "action": "suggest_by_sector"
+    },
+    {
+      "tag": "interet_meca",
+      "patterns": {
+        "fr": ["mécanique", "voiture", "automobile", "soudure", "métal", "usinage", "moteur", "réparation"],
+        "ar": ["ميكانيك", "سيارة", "لحام", "معدن", "محرك", "إصلاح"]
+      },
+      "sector_id": 3,
+      "responses": {
+        "fr": ["La mécanique est un secteur très demandé ! 🔧"],
+        "ar": ["الميكانيك قطاع مطلوب جدا! 🔧"]
+      },
+      "action": "suggest_by_sector"
+    },
+    {
+      "tag": "interet_btp",
+      "patterns": {
+        "fr": ["bâtiment", "construction", "maçon", "plombier", "dessin", "chantier", "btp", "travaux"],
+        "ar": ["بناء", "تشييد", "بنّاء", "سبّاك", "رسم", "ورشة", "أشغال"]
+      },
+      "sector_id": 4,
+      "responses": {
+        "fr": ["Le BTP recrute beaucoup en Tunisie ! 🏗️"],
+        "ar": ["قطاع البناء يوظف كثيرا في تونس! 🏗️"]
+      },
+      "action": "suggest_by_sector"
+    },
+    {
+      "tag": "interet_tourisme",
+      "patterns": {
+        "fr": ["tourisme", "hôtel", "restaurant", "cuisine", "pâtisserie", "accueil", "hôtellerie", "chef", "gâteau"],
+        "ar": ["سياحة", "فندق", "مطعم", "طبخ", "حلويات", "استقبال", "فندقة"]
+      },
+      "sector_id": 6,
+      "responses": {
+        "fr": ["Le tourisme et l'hôtellerie, un secteur passionnant ! 🏨"],
+        "ar": ["السياحة والفندقة، قطاع شيق! 🏨"]
+      },
+      "action": "suggest_by_sector"
+    },
+    {
+      "tag": "interet_esthetique",
+      "patterns": {
+        "fr": ["coiffure", "esthétique", "beauté", "maquillage", "cheveux", "salon", "manucure"],
+        "ar": ["حلاقة", "تجميل", "جمال", "مكياج", "شعر", "صالون"]
+      },
+      "sector_id": 9,
+      "responses": {
+        "fr": ["La coiffure et l'esthétique sont des métiers créatifs ! ✂️"],
+        "ar": ["الحلاقة والتجميل مهن إبداعية! ✂️"]
+      },
+      "action": "suggest_by_sector"
+    },
+    {
+      "tag": "interet_commerce",
+      "patterns": {
+        "fr": ["commerce", "vente", "marketing", "gestion", "business", "commercial", "magasin"],
+        "ar": ["تجارة", "بيع", "تسويق", "تصرف", "أعمال", "تجاري", "محل"]
+      },
+      "sector_id": 11,
+      "responses": {
+        "fr": ["Le commerce et la gestion offrent de nombreuses opportunités ! 📊"],
+        "ar": ["التجارة والتصرف يوفران فرصا عديدة! 📊"]
+      },
+      "action": "suggest_by_sector"
+    },
+    {
+      "tag": "inscription",
+      "patterns": {
+        "fr": ["inscription", "inscrire", "s'inscrire", "comment s'inscrire", "dossier", "candidature", "postuler", "documents"],
+        "ar": ["تسجيل", "كيف أسجل", "ملف", "ترشح", "وثائق"]
+      },
+      "responses": {
+        "fr": [
+          "📋 Pour vous inscrire à l'ATFP :\n\n1. Préparez votre dossier :\n   - Copie CIN ou extrait de naissance\n   - Bulletins scolaires\n   - Photos d'identité\n   - Certificat de scolarité\n\n2. Rendez-vous au centre ATFP le plus proche\n3. Passez le test d'admission\n\n📅 Les inscriptions ouvrent généralement en juillet-août.\n\nVoulez-vous trouver le centre le plus proche de chez vous ?"
+        ],
+        "ar": [
+          "📋 للتسجيل في ATFP:\n\n1. حضّر ملفك:\n   - نسخة من بطاقة الهوية أو مضمون ولادة\n   - بطاقات الأعداد\n   - صور شمسية\n   - شهادة مدرسية\n\n2. توجه إلى أقرب مركز ATFP\n3. اجتز اختبار القبول\n\n📅 التسجيلات تفتح عادة في جويلية-أوت.\n\nهل تريد إيجاد أقرب مركز لك؟"
+        ]
+      }
+    },
+    {
+      "tag": "atfp_info",
+      "patterns": {
+        "fr": ["c'est quoi atfp", "atfp", "agence", "formation professionnelle", "qu'est-ce que l'atfp", "à propos"],
+        "ar": ["ما هي atfp", "وكالة", "تكوين مهني", "ما هي الوكالة", "حول"]
+      },
+      "responses": {
+        "fr": [
+          "🏛️ L'ATFP (Agence Tunisienne de la Formation Professionnelle) est un établissement public qui :\n\n• Gère plus de 130 centres de formation à travers la Tunisie\n• Propose des formations dans 12+ secteurs\n• Délivre des diplômes reconnus (CAP, BTP, BTS)\n• Offre des formations gratuites ou à coût réduit\n\nQue souhaitez-vous savoir de plus ?"
+        ],
+        "ar": [
+          "🏛️ ATFP (الوكالة التونسية للتكوين المهني) هي مؤسسة عمومية:\n\n• تدير أكثر من 130 مركز تكوين عبر تونس\n• تقترح تكوينات في أكثر من 12 قطاع\n• تمنح شهادات معترف بها (CAP، BTP، BTS)\n• توفر تكوينات مجانية أو بأسعار مخفضة\n\nماذا تريد أن تعرف أكثر؟"
+        ]
+      }
+    },
+    {
+      "tag": "merci",
+      "patterns": {
+        "fr": ["merci", "thanks", "je vous remercie", "c'est gentil", "parfait merci", "super merci"],
+        "ar": ["شكرا", "بارك الله فيك", "يعيشك", "عظيم شكرا"]
+      },
+      "responses": {
+        "fr": [
+          "De rien ! 😊 N'hésitez pas si vous avez d'autres questions.",
+          "Avec plaisir ! Je suis là pour vous aider."
+        ],
+        "ar": [
+          "لا شكر على واجب! 😊 لا تتردد إذا كانت لديك أسئلة أخرى.",
+          "بكل سرور! أنا هنا لمساعدتك."
+        ]
+      }
+    },
+    {
+      "tag": "default",
+      "patterns": {
+        "fr": [],
+        "ar": []
+      },
+      "responses": {
+        "fr": [
+          "Je n'ai pas bien compris. Pouvez-vous reformuler ? Vous pouvez me demander :\n• Les spécialités disponibles\n• Les centres dans votre région\n• De l'aide pour vous orienter\n• Les conditions d'inscription"
+        ],
+        "ar": [
+          "لم أفهم جيدا. هل يمكنك إعادة الصياغة؟ يمكنك أن تسألني عن:\n• الاختصاصات المتاحة\n• المراكز في منطقتك\n• مساعدة في التوجيه\n• شروط التسجيل"
+        ]
+      }
+    }
+  ]
+}
