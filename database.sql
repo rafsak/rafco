@@ -239,4 +239,4 @@ INSERT INTO centre_specialite (centre_id, specialite_id) VALUES
 
 -- Admin par défaut (mot de passe : admin123)
 INSERT INTO admins (username, password_hash) VALUES
-('admin', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi');
+('admin', '$2y$10$ks9U7MfcRwH19rcA7WSYKe5Z00GMZFb0pa1WWe3ZSwzKDovQY4QwK');
