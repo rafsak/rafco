@@ -1,0 +1,36 @@
+{
+    "name": "Radio Mehna",
+    "short_name": "Radio Mehna",
+    "description": "Radio Mehna - Plateforme digitale moderne",
+    "start_url": "/fr/",
+    "display": "standalone",
+    "background_color": "#0a0a0a",
+    "theme_color": "#e50914",
+    "orientation": "any",
+    "lang": "fr",
+    "icons": [
+        {
+            "src": "/assets/images/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/images/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "categories": ["entertainment", "music"],
+    "shortcuts": [
+        {
+            "name": "Écouter en direct",
+            "url": "/fr/",
+            "icons": [{"src": "/assets/images/icon-192.png", "sizes": "192x192"}]
+        },
+        {
+            "name": "Podcasts",
+            "url": "/fr/podcasts",
+            "icons": [{"src": "/assets/images/icon-192.png", "sizes": "192x192"}]
+        }
+    ]
+}
