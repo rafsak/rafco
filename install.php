@@ -23,11 +23,25 @@ try {
 
     echo "✅ Connexion MySQL réussie.\n";
 
-    // Lire et exécuter le SQL
+    // Lire et exécuter le SQL statement par statement
     $sql = file_get_contents($sqlFile);
 
-    // Séparer les requêtes
-    $pdo->exec($sql);
+    // Supprimer les commentaires SQL
+    $sql = preg_replace('/--.*$/m', '', $sql);
+
+    // Séparer les requêtes par ;
+    $statements = array_filter(
+        array_map('trim', explode(';', $sql)),
+        function ($s) { return $s !== ''; }
+    );
+
+    $count = 0;
+    foreach ($statements as $stmt) {
+        $pdo->exec($stmt);
+        $count++;
+    }
+
+    echo "✅ {$count} requêtes exécutées.\n";
 
     echo "✅ Base de données 'atfp_chatbot' créée avec succès.\n";
     echo "✅ Tables créées et données de test insérées.\n";

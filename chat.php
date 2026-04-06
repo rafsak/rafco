@@ -345,7 +345,7 @@ function actionSuggestBySector(PDO $db, ?int $sectorId, string $lang): array
 
     $nom  = $lang === 'ar' ? 'nom_ar' : 'nom_fr';
     $desc = $lang === 'ar' ? 'description_ar' : 'description_fr';
-    $deb  = $lang === 'ar' ? 'debouches_fr' : 'debouches_fr'; // debouches only in FR for now
+    // Note : débouchés disponibles uniquement en français pour l'instant
 
     $stmt = $db->prepare("
         SELECT id, {$nom} AS nom, niveau, duree_mois, {$desc} AS description, debouches_fr AS debouches
